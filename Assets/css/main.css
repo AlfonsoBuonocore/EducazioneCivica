@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100;300&family=Pacifico&display=swap');
+
+body[data-theme="light"]{
+
+    --background: hsl(0, 0%, 69%);
+    --color-theme-icon: hsl(50, 93%, 17%);
+    --background-a: hsla(0, 0%, 69%, 0.2);
+    --color-a: hsl(0, 2%, 19%)
+
+}
+
+body[data-theme="dark"]{
+
+    --background: hsl(0, 2%, 19%);
+    --color-theme-icon: hsl(221, 48%, 31%);
+    --background-a: hsla(0, 2%, 10%, 0.2);
+    --color-a: hsl(0, 0%, 69%);
+
+}
+
+.change-theme h1{
+
+    width: 50%;
+
+    font-family: 'Pacifico', cursive;
+
+    color: var(--color-a);
+
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Chivo Mono', monospace;
+}
+
+body{
+    
+    display: flex;
+    
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 100vh;
+    
+    background: var(--background);
+    
+    transition: all .5s ease-in-out;
+
+    transition: background 0s ease-in-out;
+
+}
+
+input[type="checkbox"]{
+
+    display: none;
+
+}
+
+.flex{
+
+    display: flex;
+
+    width: 100%;
+    height: fit-content;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: row;
+
+    padding: 0 5%;
+
+    gap: 0 20%;
+
+    flex-wrap: wrap;
+
+    min-height: 100vh;
+
+}
+
+.flex-area{
+
+    display: flex;
+
+    min-width: 300px;
+    width: 40%;
+
+    height: fit-content;
+
+    place-items: center;
+
+}
+
+.img{
+
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 1.5;
+
+    background-image: var(--i);
+
+    background-position: center;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.img a{
+
+    position: absolute;
+
+    background: var(--background-a);
+
+    width: 100%;
+    height: 0;
+
+    display: flex;
+
+    color: var(--color-a);
+
+    border-bottom: solid 2px #1b1b1b; 
+
+    justify-content: center;
+    align-items: center;
+
+    visibility: hidden;
+
+    overflow: hidden;
+    
+    transition: all .5s ease-in-out;
+
+    text-decoration: none;
+
+    font-size: 25px;
+    
+}
+
+.img:hover a{
+    
+    height: 100%;
+    
+    visibility: visible;
+
+}
+
+.change-theme{
+
+    height: auto;
+    width: 100%;
+
+    text-decoration: none;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+    
+    padding: 0 15px 0 15px;
+    
+}
+
+.change-theme ul{
+
+    width: 50%;
+    
+    list-style: none;
+
+    font-size: 22px;
+
+    color: var(--color-theme-icon);
+
+}
+
+
+.change-theme ul li{
+
+    text-align: -moz-right;
+
+}
+
+.change-theme ul li i{
+    
+    width: fit-content;
+
+    cursor: pointer;
+
+}
+
+section{
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: initial;
+
+    flex-direction: row;
+
+    padding: 50px 0;
+
+}
+
+section .left{
+
+    width: 120vw;
+
+    display: flex;
+
+    align-items: initial;
+    justify-content: center;
+
+}
+
+section .left .page{
+
+    width: 60%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px 0;
+
+}
+
+section .left .page .content img{
+
+    width: 100%;
+
+    aspect-ratio: 1.5;
+
+    border: solid 1px #1b1b1b;
+
+    margin: 20px 0;
+
+}
+
+section .right{
+
+    position: sticky;
+
+    height: fit-content;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px 0;
+
+    top: 20px;
+
+}

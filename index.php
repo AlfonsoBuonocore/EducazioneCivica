@@ -2,29 +2,27 @@
 
     require_once("function.php");
 
+    include "header.php";
+
     $contents = getAll();
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <div class="gap">
+        <div class="flex">
 
             <?php
                 foreach ($contents as $content) {
+                    $img = "../img/".$content["img"];
                     echo "
                     
-                        <div class='gap-area'>
+                        <div class='flex-area'>
 
-                            <img href='".$content["img"]."' alt='".$content["img"]."' />
-                            <p><a href='pages.php?id=".$content["id"]."'>". $content["id"]."</a></p>
+                            <div class='img' style='--i: url($img)'>
+                            
+                                <a href='pages.php?id=".$content["id"]."'>".$content["id"]."</a>
+
+                            </div>
+                            
 
                         </div>
                     
@@ -36,4 +34,5 @@
         </div>
         
     </body>
+    <script src="Assets/javascript/main.js"></script>
 </html>
