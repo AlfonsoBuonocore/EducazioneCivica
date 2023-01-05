@@ -58,3 +58,41 @@
     // setto nello stoage locale il mio attributo corrispondente al tema del sito in modo che nel caricamento succesivo della pagina il tema sara gia attivo
     localStorage.setItem('selected-theme',Theme)
   }
+
+// ------------- Registrazione articolo ------------ //
+
+  const title = document.querySelector(".title");
+  const content = document.querySelector(".content");
+  const img = document.querySelector(".imgIns");
+  const divIns = document.querySelector(".inserimento");
+
+  const a = document.getElementById("active");
+
+  const Article = {
+    title:"",
+    content:""
+  }
+
+  a.addEventListener("click", ()=>{
+    if (img.classList.contains("active")) img.classList.remove("active")
+    divIns.style.display = "block";
+    title.classList.add("active");
+  })
+
+  function regTitle(){
+    Article.title = document.getElementById("title").value;
+    if (Article.title != "") {
+      title.classList.remove("active");
+      content.classList.add("active");
+    }
+    else alert("titolo vuoto");
+  }
+
+  function regContent(){
+    Article.content = document.getElementById("content").value;
+    if (Article.content != "") {
+      content.classList.remove("active");
+      img.classList.add("active");
+    }
+    else alert("contenuto vuoto");
+  }

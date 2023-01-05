@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100;300&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200;400&family=Rubik+Spray+Paint&family=Satisfy&display=swap');
 
 body[data-theme="light"]{
 
     --background: hsl(0, 0%, 69%);
     --color-theme-icon: hsl(50, 93%, 17%);
     --background-a: hsla(0, 0%, 69%, 0.2);
-    --color-a: hsl(0, 2%, 19%)
+    --color-a: hsl(0, 2%, 19%);
+    --background-add: rgb(13, 57, 83);
+    --color-add: hsl(0, 2%, 11%);
 
 }
 
@@ -15,6 +17,14 @@ body[data-theme="dark"]{
     --color-theme-icon: hsl(221, 48%, 31%);
     --background-a: hsla(0, 2%, 10%, 0.2);
     --color-a: hsl(0, 0%, 69%);
+    --background-add: rgb(45, 10, 68);
+    --color-add: hsl(0, 1%, 67%);
+
+}
+
+.change-theme{
+
+    margin: 10px 0;
 
 }
 
@@ -22,7 +32,9 @@ body[data-theme="dark"]{
 
     width: 50%;
 
-    font-family: 'Pacifico', cursive;
+    font-family: 'Satisfy', cursive;
+
+    font-size: 40px;
 
     color: var(--color-a);
 
@@ -48,9 +60,11 @@ body{
     
     background: var(--background);
     
-    transition: all .5s ease-in-out;
+    transition: all .8s ease-in-out;
 
     transition: background 0s ease-in-out;
+
+    overflow-x: hidden;
 
 }
 
@@ -74,11 +88,11 @@ input[type="checkbox"]{
 
     padding: 0 5%;
 
-    gap: 0 20%;
+    gap: 5% 20%;
 
     flex-wrap: wrap;
 
-    min-height: 100vh;
+    min-height: 90vh;
 
 }
 
@@ -106,7 +120,7 @@ input[type="checkbox"]{
 
     background-position: center;
 
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 
 }
@@ -164,6 +178,8 @@ input[type="checkbox"]{
     align-items: center;
     
     padding: 0 15px 0 15px;
+
+    margin-bottom: 30px;
     
 }
 
@@ -182,7 +198,10 @@ input[type="checkbox"]{
 
 .change-theme ul li{
 
-    text-align: -moz-right;
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: center;
 
 }
 
@@ -209,11 +228,13 @@ section{
 
     padding: 50px 0;
 
+    color: var(--color-a);
+
 }
 
 section .left{
 
-    width: 120vw;
+    width: 75vw;
 
     display: flex;
 
@@ -249,6 +270,8 @@ section .left .page .content img{
 section .right{
 
     position: sticky;
+    
+    width: 25vw;
 
     height: fit-content;
 
@@ -260,4 +283,366 @@ section .right{
 
     top: 20px;
 
+}
+
+form{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    justify-content: center;
+    align-items: initial;
+
+}
+
+textarea{
+
+    width: 100%;
+
+}
+
+.errore{
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 90vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.errore .err{
+
+    position: absolute;
+
+    font-weight: bold;
+
+    font-size: 68px;
+
+    color: var(--color-a);
+
+    font-family: 'Rubik Spray Paint', cursive;
+
+}
+
+.errore .circle{
+
+    position: relative;
+
+    height: 70vh;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background: var(--background);
+
+    animation: rotate 10s infinite;
+
+}
+
+.errore .circle span{
+
+    position: absolute;
+
+    width: 20px;
+    aspect-ratio: 1;
+
+    background: -moz-linear-gradient(210deg, var(--background), var(--background-a));
+    background: -webkit-linear-gradient(210deg, var(--background), var(--background-a));
+    background: linear-gradient(210deg, var(--background), var(--background-a));
+    
+    border-radius: 50%;
+
+    top: 0;
+
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+    box-shadow: inset -5px 0px 10px rgba(255, 255, 255, 0.5);
+
+    filter: drop-shadow(0 0 10px rgb(255,255,255));
+
+}
+
+.addArticle,
+.goBack{
+
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    width: 60px;
+
+    aspect-ratio: 1;
+
+    background-color: var(--background-add);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+
+    filter: drop-shadow(0 0 15px hsl(0, 2%, 11%));
+
+}
+
+.addArticle i,
+.goBack i{
+
+    color: var(--color-add);
+
+}
+
+.inserimento{
+
+    display: none;
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    width: 60%;
+    height: 60vh;
+
+}
+
+.inserimento form div{
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    display: flex;
+
+    gap: 15px;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    flex-direction: column;
+
+    padding: 20px;
+
+    color: var(--color-a);
+
+    background: var(--background);
+
+}
+
+.inserimento form div label{
+
+    width: 70%;
+
+}
+
+.inserimento form div label input{
+
+    width: 100%;
+
+}
+
+.inserimento form div input[type="button"],
+.inserimento form div input[type="submit"]{
+
+    width: 70%;
+
+}
+
+.inserimento form div.active{
+
+    opacity: 1;
+    
+    visibility: visible;
+
+}
+
+.close{
+
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    font-size: 30px;
+
+    color: var(--color-a);
+
+}
+
+@media (max-width: 1350px) {
+
+	section .left{
+    	
+        width: 65vw;
+        
+    }
+    
+    section .right{
+    
+    	width: 35vw;
+    
+    }
+
+}
+
+@media (max-width: 950px) {
+
+    .change-theme h1{
+
+        font-size: 28px;
+
+    }
+    
+    section .left{
+    
+    	width:	80%;
+    
+    }
+
+    section .left .page .title{
+
+        font-size: 18px;
+
+    }
+
+    section .left .page .content{
+
+        font-size: 12px;
+
+    }
+    
+    section{
+
+        flex-wrap: wrap;
+
+    }
+
+    section .right{
+
+        position: relative;
+
+        justify-content: center;
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        flex-direction: row;
+
+        width: 60%;
+
+    }
+
+    section .right .flex-area{
+
+        min-width: 280px;
+
+        width: 50%;
+
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    section .right .flex-area .img{
+
+        width: 70%;
+
+    }
+
+    section .right h1{
+
+        font-size: 16px;
+
+    }
+
+    .inserimento{
+    
+        width: 100%;
+        height: 100vh;
+    
+    }
+    
+    .inserimento form div label{
+    
+        width: 90%;
+    
+    }
+    
+    .inserimento form div label input{
+    
+        width: 100%;
+    
+    }
+    
+    .inserimento form div input[type="button"],
+    .inserimento form div input[type="submit"]{
+    
+        width: 100%;
+    
+    }
+
+    .errore{
+
+        min-height: 70vh;
+
+    }
+    
+    .errore .err{
+    
+        font-size: 38px;
+    
+    }
+    
+    .errore .circle{
+    
+        height: 40vh;
+    
+        animation: rotate 8s infinite;
+    
+    }
+    
+    .errore .circle span{
+    
+        width: 10px;
+    
+    }
+
+}
+
+@keyframes rotate{
+    to{
+        transform: rotate(360deg);
+    }
 }
